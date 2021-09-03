@@ -8,7 +8,9 @@ import java.time.temporal.ChronoUnit;
 import br.com.alura.rh.ValidacaoException;
 import br.com.alura.rh.model.Funcionario;
 
-public class ValidacaoPeriodicidadeEntreReajuste {
+public class ValidacaoPeriodicidadeEntreReajuste implements ValidacaoReajuste {
+	
+	
 	public void validar(Funcionario funcionario, BigDecimal aumento) {
 		LocalDate dataUltimoReajuste = funcionario.getDataUltimoReajuste();
 		LocalDate dataAtual = LocalDate.now();
@@ -17,4 +19,5 @@ public class ValidacaoPeriodicidadeEntreReajuste {
 			throw new ValidacaoException("Intervalo entre reajustes deve ser maior que 6 meses!");
 		}
 	}
+	
 }
